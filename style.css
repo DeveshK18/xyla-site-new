@@ -677,6 +677,13 @@ nav a:hover { color: var(--ink); }
 .hpanel-bg-oilrig video {
   height: 111.11%;
 }
+.hpanel-bg-oilrig::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #ffffff 0%, transparent 40%);
+  pointer-events: none;
+}
 
 /* bestfinalsub: full 2486×1341, no black padding — no scaling needed */
 .hpanel-bg-sub {
