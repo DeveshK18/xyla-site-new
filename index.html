@@ -441,8 +441,8 @@
   function cacheSysLayout() {
     if (!sysSection) return;
     sysSectionTop = sysSection.getBoundingClientRect().top + window.scrollY;
-    /* extra 280px drives the 4 steps */
-    sysScrollable = 280;
+    /* section is 3*vh, sticky is 1*vh, scrollable range = 2*vh */
+    sysScrollable = 2 * window.innerHeight;
   }
   window.addEventListener('load', cacheSysLayout);
   window.addEventListener('resize', cacheSysLayout, { passive: true });
