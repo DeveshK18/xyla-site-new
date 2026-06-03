@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════
-   XYLA — style.css  ·  JetBrains Mono throughout
+   XYLA — style.css
    ═══════════════════════════════════════════════════════════ */
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -7,8 +7,8 @@
 :root {
   --bg:      #ffffff;
   --ink:     #0d0d0d;
-  --muted:   #888888;
-  --dim:     #c8c8c8;
+  --muted:   #555555;
+  --dim:     #aaaaaa;
   --ease:    cubic-bezier(0.16, 1.08, 0.38, 0.98);
   --gutter:  clamp(24px, 5vw, 64px);
   --nav-h:   48px;
@@ -52,39 +52,33 @@ html { scroll-behavior: auto; -webkit-font-smoothing: antialiased; -moz-osx-font
   }
   6%  { opacity: 1; }
   32% {
-    /* first fast burst — one full rotation */
     transform: rotate(360deg) scale(1.02);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 0.4);
   }
   52% {
-    /* slow drift / hover */
     transform: rotate(385deg) scale(1);
     animation-timing-function: cubic-bezier(0, 0.5, 0.2, 1);
   }
   80% {
-    /* second fast burst — second full rotation */
     transform: rotate(720deg) scale(1.01);
     animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
   }
   100% {
-    /* slow settle */
     transform: rotate(720deg) scale(1);
     opacity: 1;
   }
 }
 
 /* ─── PERFORMANCE ────────────────────────────────────────── */
-/* GPU compositor layers for animated/transformed elements */
 .hero-gif,
 .hscroll-track {
   will-change: transform;
 }
 
-
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
@@ -98,14 +92,13 @@ section { position: relative; }
 .reveal.visible { opacity: 1; }
 
 /* ─── SECTION BREAKS ─────────────────────────────────────── */
-/* Format: ← // 01 — LABEL  - - - - - - - - - - - - - - -   */
 .sbreak {
   overflow: hidden;
   padding: 13px var(--gutter);
 }
 .sbreak::before {
   content: '← ' attr(data-label) '  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -';
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
   font-weight: 300;
   color: var(--dim);
@@ -140,7 +133,7 @@ header {
 
 nav { display: flex; gap: 24px; align-items: center; }
 nav a {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
   font-weight: 300;
   letter-spacing: 0.1em;
@@ -153,7 +146,8 @@ nav a:hover { color: var(--ink); }
 
 @media (max-width: 640px) {
   header { top: 0; left: 0; transform: none; width: 100%; max-width: none; border-left: none; border-right: none; border-top: none; }
-  nav .hide-mobile { display: none; }
+  nav { gap: 14px; }
+  nav a { font-size: clamp(9px, 2.2vw, 12px); }
 }
 
 /* ─── HERO ───────────────────────────────────────────────── */
@@ -170,31 +164,18 @@ nav a:hover { color: var(--ink); }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: calc(var(--nav-h) + clamp(6px, 0.9vh, 24px));
+  padding-top: calc(var(--nav-h) + clamp(20px, 3vh, 48px));
   padding-bottom: clamp(4px, 0.5vh, 12px);
   overflow: hidden;
 }
 
-/* Crop to the visible 1150×670 region of the gif (black space is outside this area).
-   The container locks to the 1150:670 aspect ratio and clips overflow.
-   The img is set to exactly 1150px wide at natural size, so percentage sizing
-   fills the container while object-position anchors to the top-left of the content. */
 .hero-gif {
-  /* width is the smallest of: 70vw, 1100px hard cap,
-     or the width that makes height = (100vh - 220px) at this aspect ratio.
-     This keeps the gif within the viewport on short laptop screens without
-     breaking the crop — the container and image scale together. */
   width: min(76vw, 1200px, calc((100vh - 215px) * 1150 / 670));
   aspect-ratio: 1150 / 670;
   overflow: hidden;
   position: relative;
 }
 
-/* Gif is 1546×978. Content is 1150×670 at the top-left corner.
-   Black padding is only on the right (396px) and bottom (308px).
-   Scale image so content width (1150) fills container: 1546/1150 = 134.43%.
-   overflow:hidden on the container clips the right/bottom black automatically.
-   No translate needed — content starts at (0,0). */
 .hero-gif img {
   position: absolute;
   top: 0;
@@ -213,7 +194,7 @@ nav a:hover { color: var(--ink); }
 }
 
 .hero-para {
-  font-size: clamp(7px, 1.1vh, 10.5px);
+  font-size: clamp(10px, 1.3vh, 10.5px);
   font-weight: 300;
   color: var(--muted);
   line-height: 1.85;
@@ -224,8 +205,8 @@ nav a:hover { color: var(--ink); }
 .hero-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 
 .btn-primary {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(7px, 1vh, 9px);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(8px, 1vh, 9px);
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -240,8 +221,8 @@ nav a:hover { color: var(--ink); }
 .btn-primary:hover { background: var(--ink); color: #fff; }
 
 .btn-ghost {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: clamp(7px, 1vh, 9px);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: clamp(8px, 1vh, 9px);
   font-weight: 300;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -257,7 +238,7 @@ nav a:hover { color: var(--ink); }
 .hero-right { text-align: right; }
 
 .hero-tagline {
-  font-size: clamp(8px, 1.3vh, 11.5px);
+  font-size: clamp(10px, 1.3vh, 11.5px);
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -266,7 +247,7 @@ nav a:hover { color: var(--ink); }
 }
 
 .hero-tagsub {
-  font-size: clamp(7px, 1.1vh, 10.5px);
+  font-size: clamp(9px, 1.1vh, 10.5px);
   font-weight: 300;
   color: var(--muted);
   margin-top: clamp(3px, 0.4vh, 5px);
@@ -288,7 +269,7 @@ nav a:hover { color: var(--ink); }
 }
 
 .hsh-label {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 8px;
   font-weight: 300;
   letter-spacing: 0.22em;
@@ -312,18 +293,56 @@ nav a:hover { color: var(--ink); }
 .hero-mobile-heading { display: none; }
 
 @media (max-width: 768px) {
-  .hero-gif { width: 98vw; }
-  .hero-bottom { grid-template-columns: 1fr; gap: 24px; padding-bottom: 36px; }
-  .hero-right { display: none; } /* hidden on mobile — mobile heading replaces it */
+  #hero {
+    height: 100svh;
+    justify-content: flex-start;
+  }
 
   .hero-mobile-heading {
     display: block;
-    padding: calc(var(--nav-h) + 20px) var(--gutter) 10px;
+    flex-shrink: 0;
+    padding: calc(var(--nav-h) + 2vh) var(--gutter) 1vh;
   }
-  .hero-mobile-heading .hero-tagline { font-size: 13px; }
-  .hero-mobile-heading .hero-tagsub  { font-size: 11px; margin-top: 6px; }
-  /* on mobile, hero-main no longer needs the large nav padding since heading provides it */
-  .hero-main { padding-top: 12px; }
+  .hero-mobile-heading .hero-tagline { font-size: clamp(13px, 3.8vw, 17px); }
+  .hero-mobile-heading .hero-tagsub  { font-size: clamp(10px, 3vw, 13px); margin-top: 3px; }
+
+  .hero-main {
+    flex: 0 0 auto;
+    padding-top: 7vh;
+    padding-bottom: 0;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Mobile gif pre-cropped to 1024×682 */
+  .hero-gif {
+    width: 96vw;
+    height: auto;
+    aspect-ratio: 1024 / 682;
+    overflow: hidden;
+    position: relative;
+  }
+  .hero-gif picture { display: block; width: 100%; }
+  .hero-gif img {
+    position: static;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .hero-bottom {
+    flex-shrink: 0;
+    margin-top: auto;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 var(--gutter) 14vh;
+    align-items: end;
+  }
+  .hero-right { display: none; }
+
+  .hero-para { font-size: clamp(11px, 2.8vw, 15px); max-width: none; line-height: 1.55; margin-bottom: 12px; }
+  .hero-actions { gap: 10px; }
+  .hero-scroll-hint { display: none; }
 }
 
 /* ─── THESIS ─────────────────────────────────────────────── */
@@ -332,10 +351,10 @@ nav a:hover { color: var(--ink); }
 .thesis-body { max-width: 660px; }
 
 .thesis-line {
-  font-size: clamp(12px, 1.1vw, 15px);
+  font-size: clamp(13px, 1.1vw, 15px);
   font-weight: 300;
   line-height: 1.78;
-  color: #c0c0c0;
+  color: #aaaaaa;
   transition: color 0.5s ease;
   margin-bottom: 6px;
   display: block;
@@ -350,10 +369,10 @@ nav a:hover { color: var(--ink); }
 }
 
 .thesis-rule {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   font-weight: 200;
-  color: #e8e8e8;
+  color: #e0e0e0;
   letter-spacing: 0.22em;
   white-space: nowrap;
   overflow: hidden;
@@ -362,9 +381,8 @@ nav a:hover { color: var(--ink); }
 }
 
 /* ─── SYSTEM ─────────────────────────────────────────────── */
-#system-intro { padding: 48px 0 32px; }
+#system-intro { padding: 48px 0 52px; }
 
-/* Header row */
 .sg-header {
   display: flex;
   align-items: baseline;
@@ -386,9 +404,7 @@ nav a:hover { color: var(--ink); }
   color: var(--muted);
 }
 
-/* ─── SYSTEM — image + spec table ────────────────────────── */
-#system-intro { padding-bottom: 52px; }
-
+/* Desktop: two-column layout */
 .sys-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -397,21 +413,22 @@ nav a:hover { color: var(--ink); }
   margin-top: 24px;
 }
 
-/* Left: container image */
 .sys-img-col { position: relative; }
+.sys-img-slot { width: 100%; }
+.sys-img-slot img { width: 100%; height: auto; display: block; }
 
-.sys-img-slot {
-  width: 100%;
-}
-
-.sys-img-slot img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Right: spec table */
 .sys-spec-col { display: flex; flex-direction: column; }
+
+/* ── Spec row animate-in ─────────────────────────────── */
+.spec-animate {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.spec-animate.spec-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 .sys-spec-row {
   display: grid;
@@ -455,7 +472,7 @@ nav a:hover { color: var(--ink); }
 }
 
 .ssr-ctx {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 300;
   color: var(--muted);
   line-height: 1.75;
@@ -474,36 +491,150 @@ nav a:hover { color: var(--ink); }
 
 .sds-sep { color: #d8d8d8; }
 
+/* Hide mobile system on desktop */
+.sys-mobile-sticky { display: none; }
+
 @media (max-width: 768px) {
-  .sys-layout { grid-template-columns: 1fr; gap: 24px; }
-  .sys-spec-row { grid-template-columns: 72px 1fr; gap: 6px 12px; }
-}
+  /* Hide desktop layout, show mobile sticky */
+  .sys-desktop-wrap { display: none; }
+  .sys-mobile-sticky { display: block; }
 
-/* Moon panel quote */
-.moon-para {
-  font-size: clamp(11px, 0.9vw, 13px);
-  max-width: 480px;
-}
+  /* sticky viewport + minimal extra to drive 4 steps */
+  #system-intro {
+    padding: 0;
+    height: calc(100vh + 280px);
+    position: relative;
+  }
 
-.moon-quote {
-  margin-top: 20px;
-  padding-left: 16px;
-  border-left: 1px dashed #d0d0d0;
-  max-width: 480px;
-}
+  /* Sticky container fills one viewport height */
+  .sys-mobile-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
 
-.moon-quote cite {
-  display: block;
-  margin-top: 8px;
-  font-style: normal;
-  font-size: 9px;
-  font-weight: 300;
-  color: var(--dim);
-  letter-spacing: 0.04em;
+  .sys-mobile-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: calc(var(--nav-h) + 6px) var(--gutter) 12px;
+    gap: 0;
+  }
+
+  /* Container image — small enough that everything below fits */
+  .sys-mobile-img {
+    flex: 0 0 18vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+
+  .sys-mobile-img img {
+    width: auto;
+    max-width: 100%;
+    height: 18vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Spec area: fixed height so dots+strip always fit below */
+  .sys-mobile-specs {
+    position: relative;
+    flex: 0 0 26vh;
+    min-height: 0;
+  }
+
+  .sys-mobile-spec {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sys-mobile-spec.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .sys-mobile-spec .ssr-tag {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+  }
+
+  .sys-mobile-spec .ssr-metric {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .sys-mobile-spec .ssr-unit {
+    font-size: 0.4em;
+    color: var(--muted);
+    margin-left: 4px;
+    vertical-align: middle;
+  }
+
+  .sys-mobile-spec .ssr-ctx {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* Step dots */
+  .sys-mobile-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 8px 0 6px;
+    flex-shrink: 0;
+  }
+
+  .smd-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--dim);
+    transition: background 0.3s, transform 0.3s;
+    display: block;
+  }
+
+  .smd-dot.active {
+    background: var(--ink);
+    transform: scale(1.4);
+  }
+
+  /* Deploy strip at bottom */
+  .sys-mobile-deploy {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 9px;
+    font-weight: 300;
+    color: var(--muted);
+    padding-top: 8px;
+    border-top: 1px dashed #eeeeee;
+  }
 }
 
 /* ─── USE CASES ──────────────────────────────────────────── */
-#usecases { height: calc(4 * 100vh); position: relative; }
+/* Desktop: 3× 100vh — shorter feels snappier */
+#usecases { height: calc(3 * 100vh); position: relative; }
 
 .hscroll-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; transform: translateZ(0); }
 
@@ -515,7 +646,7 @@ nav a:hover { color: var(--ink); }
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 36px var(--gutter) 48px;
   position: relative;
   border-right: 1px dashed #dedede;
@@ -526,6 +657,7 @@ nav a:hover { color: var(--ink); }
   position: absolute;
   top: 36px;
   left: var(--gutter);
+  z-index: 10;
 }
 
 .hpanel-idx {
@@ -537,10 +669,10 @@ nav a:hover { color: var(--ink); }
 
 .hpanel-bot {
   flex-shrink: 0;
-  max-width: 560px;
+  max-width: min(540px, 50%);
   position: relative;
   z-index: 100;
-  padding: clamp(22px, 3.5vh, 40px) 0;
+  margin-top: calc(var(--nav-h) + 36px);
 }
 
 .hpanel-title {
@@ -553,10 +685,10 @@ nav a:hover { color: var(--ink); }
 }
 
 .hpanel-specs { list-style: none; display: flex; flex-direction: column; gap: clamp(5px, 0.8vh, 10px); }
-.hpanel-specs li { font-size: clamp(10px, 0.95vw, 13px); font-weight: 300; color: #666; line-height: 1.5; }
+.hpanel-specs li { font-size: clamp(10px, 0.95vw, 13px); font-weight: 300; color: var(--muted); line-height: 1.5; }
 
 .panel-ascii {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   line-height: 1.45;
   color: #cccccc;
@@ -571,10 +703,10 @@ nav a:hover { color: var(--ink); }
 .hpanel-para {
   font-size: clamp(10px, 0.95vw, 13px);
   font-weight: 300;
-  color: #666;
+  color: var(--muted);
   line-height: 1.7;
   margin-top: clamp(10px, 1.5vh, 18px);
-  max-width: 480px;
+  max-width: 100%;
 }
 
 .hpanel-price {
@@ -602,7 +734,6 @@ nav a:hover { color: var(--ink); }
 }
 .hpanel-contact a:hover { text-decoration: underline; }
 
-
 .hpanel-arrow {
   position: absolute;
   right: var(--gutter);
@@ -615,97 +746,116 @@ nav a:hover { color: var(--ink); }
   user-select: none;
 }
 
-/* ── Panel background gifs (sub + space) ──────────────── */
+/* ── Panel background videos ──────────────────────────── */
 .hpanel-bg-gif {
   position: absolute;
   right: 0;
-  top: 9%;
-  height: 82%;
+  top: 0;
+  width: 58%;
+  height: 100%;
   overflow: hidden;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.72;
+  opacity: 0.85;
 }
 
 .hpanel::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, #ffffff 42%, rgba(255,255,255,0) 62%);
+  background: linear-gradient(to right, #ffffff 44%, rgba(255,255,255,0.95) 52%, rgba(255,255,255,0) 65%);
   z-index: 1;
   pointer-events: none;
 }
 
-.hpanel-bg-gif img,
 .hpanel-bg-gif video {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: auto;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   display: block;
 }
 
-/* ships: content 1888×1225 inside 1890×1633
-   black padding is bottom-only (408px), almost no right padding
-   height scale = 1633/1225 = 133.31% */
-.hpanel-bg-ships {
-  aspect-ratio: 1888 / 1225;
-}
-.hpanel-bg-ships img,
-.hpanel-bg-ships video {
-  height: 133.31%;
+/* Desktop: hide videos on mobile — they show differently */
+@media (min-width: 769px) {
+  /* nothing to override — videos show normally */
 }
 
-.hpanel-bg-ships::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, #ffffff 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 1;
-}
-.hpanel-bg-ships img {
-  height: 133.31%;
-}
-
-/* oilrig: content 2017×1134 inside 2881×1260
-   height scale = 1260/1134 = 111.11% */
-.hpanel-bg-oilrig {
-  aspect-ratio: 2017 / 1134;
-}
-.hpanel-bg-oilrig img,
-.hpanel-bg-oilrig video {
-  height: 111.11%;
-}
-.hpanel-bg-oilrig::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, #ffffff 0%, transparent 40%);
-  pointer-events: none;
-}
-
-/* bestfinalsub: full 2486×1341, no black padding — no scaling needed */
-.hpanel-bg-sub {
-  aspect-ratio: 2486 / 1341;
-}
-.hpanel-bg-sub img,
-.hpanel-bg-sub video {
-  height: 100%;
-}
-
-/* spaceascii: content 1294×726 inside 1991×968
-   height scale = 968/726 = 133.33% */
-.hpanel-bg-space {
-  aspect-ratio: 1294 / 726;
-}
-.hpanel-bg-space img,
-.hpanel-bg-space video {
-  height: 133.33%;
-}
-
+/* ── Mobile use-cases: horizontal scroll same as desktop ── */
 @media (max-width: 768px) {
-  .hpanel-bg-gif { display: none; }
+  /* Mobile: same speed as desktop */
+  #usecases { height: calc(3 * 100vh); }
+
+  .hpanel {
+    /* Shorter padding so text fits above the video */
+    padding: 0 var(--gutter) 0;
+    justify-content: flex-start;
+  }
+
+  .hpanel-top {
+    top: 20px;
+    z-index: 102;
+  }
+
+  .hpanel-bot {
+    margin-top: calc(var(--nav-h) + 14px);
+    max-width: 100%;
+    padding-bottom: 0;
+    /* no height cap — let content breathe, video sits below */
+  }
+
+  .hpanel-title {
+    font-size: clamp(24px, 8vw, 40px);
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+
+  .hpanel-specs li { font-size: 11px; line-height: 1.4; }
+  .hpanel-para { font-size: 11px; max-width: none; line-height: 1.55; margin-top: 8px; }
+
+  /* Videos: start at 50% down */
+  .hpanel-bg-gif {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    opacity: 1;
+  }
+
+  .hpanel-bg-gif video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: none;
+  }
+
+  .hpanel::before {
+    background: linear-gradient(to bottom,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0) 44%,
+      rgba(255,255,255,0.98) 49%,
+      rgba(255,255,255,0.6) 58%,
+      rgba(255,255,255,0) 100%
+    );
+    z-index: 2;
+  }
+
+  .hpanel-arrow { display: none; }
+
+  .hscroll-progress {
+    display: block;
+    bottom: 12px;
+  }
 }
 
 .hscroll-progress {
@@ -722,19 +872,31 @@ nav a:hover { color: var(--ink); }
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  #usecases { height: auto; }
-  .hscroll-sticky { position: relative; top: auto; height: auto; overflow: visible; }
-  .hscroll-track { flex-direction: column; }
-  .hpanel { width: 100%; height: auto; border-right: none; padding: 40px var(--gutter); justify-content: flex-start; }
-  .hpanel:not(:last-child) { border-bottom: 1px dashed #e0e0e0; }
-  .hpanel-top { position: static; margin-bottom: 20px; }
-  .hpanel-arrow { display: none; }
-  .hscroll-progress { display: none; }
+/* Moon panel quote */
+.moon-para {
+  font-size: clamp(11px, 0.9vw, 13px);
+  max-width: 480px;
+}
+
+.moon-quote {
+  margin-top: 20px;
+  padding-left: 16px;
+  border-left: 1px dashed #d0d0d0;
+  max-width: 480px;
+}
+
+.moon-quote cite {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 300;
+  color: var(--dim);
+  letter-spacing: 0.04em;
 }
 
 /* ─── SUPPORTERS ─────────────────────────────────────────── */
-#traction { padding: 60px 0 60px; }
+#traction { padding: 60px 0 60px; position: relative; z-index: 10; }
 
 .traction-logos {
   display: flex;
@@ -753,8 +915,9 @@ nav a:hover { color: var(--ink); }
 
 .traction-flags {
   display: flex;
+  flex-direction: row;
   align-items: flex-end;
-  gap: 64px;
+  gap: 48px;
   flex-wrap: wrap;
 }
 
@@ -762,7 +925,24 @@ nav a:hover { color: var(--ink); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+}
+
+@media (max-width: 768px) {
+  .traction-flags {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .traction-flag-item {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+  .traction-flag {
+    width: 80px;
+    height: 54px;
+  }
 }
 
 .traction-flag {
@@ -778,7 +958,7 @@ nav a:hover { color: var(--ink); }
 }
 
 .traction-flag-name {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
   font-weight: 300;
   letter-spacing: 0.14em;
@@ -787,7 +967,7 @@ nav a:hover { color: var(--ink); }
 }
 
 .traction-more {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 9px;
   font-weight: 300;
   letter-spacing: 0.12em;
@@ -796,7 +976,7 @@ nav a:hover { color: var(--ink); }
 }
 
 /* ─── CONTACT ────────────────────────────────────────────── */
-#contact { padding: 80px 0 120px; }
+#contact { padding: 80px 0 120px; position: relative; z-index: 10; }
 
 .contact-grid {
   display: grid;
@@ -805,7 +985,6 @@ nav a:hover { color: var(--ink); }
   align-items: center;
 }
 
-/* ASCII art centered within its column */
 .contact-grid > div:last-child {
   display: flex;
   justify-content: center;
@@ -837,7 +1016,6 @@ nav a:hover { color: var(--ink); }
   line-height: 1.75;
 }
 
-/* Contact logo image */
 .logo-ascii {
   width: min(300px, 55vw);
   height: auto;
@@ -846,7 +1024,6 @@ nav a:hover { color: var(--ink); }
   opacity: 0.55;
 }
 
-
 /* ─── FOOTER ─────────────────────────────────────────────── */
 footer {
   padding: 18px var(--gutter);
@@ -854,6 +1031,8 @@ footer {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
 }
 
 footer span,
