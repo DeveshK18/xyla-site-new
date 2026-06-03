@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@200;300;400&display=swap" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -30,8 +30,8 @@
     <img src="images/darkletterlogo.svg" alt="Xyla">
   </a>
   <nav>
-    <a href="#system-intro" class="hide-mobile">Technology</a>
-    <a href="#usecases" class="hide-mobile">Deployment</a>
+    <a href="#system-intro">Technology</a>
+    <a href="#usecases">Deployment</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -46,7 +46,10 @@
 
   <div class="hero-main">
     <div class="hero-gif">
-      <img src="images/ascii-1780274251412.gif" alt="Xyla deployable biofactory">
+      <picture>
+        <source srcset="images/hero_mobile.gif" media="(max-width: 768px)">
+        <img src="images/ascii-1780274251412.gif" alt="Xyla deployable biofactory">
+      </picture>
     </div>
   </div>
 
@@ -76,23 +79,19 @@
 <section id="thesis">
   <div class="wrap">
     <div class="thesis-body">
-      <p class="thesis-line">The ocean creates a form of isolation that doesn't exist elsewhere. Ships, offshore platforms, and remote stations operating far from shore are dependent on a supply chain, which consists of vessels, helicopter runs, and cargo flights. These supply chains carry every basic requirement including food, water, basic first aid supplies, and fuel. The issue is, distance and weather, among other variables, govern the schedule, and when the chain breaks, operations stop.</p>
+      <p class="thesis-line">The ocean creates a form of isolation that doesn't exist elsewhere. Ships, offshore platforms, and remote stations operating far from shore are dependent on a supply chain of vessels, helicopter runs, and cargo flights that carry food, water, basic first aid supplies, and fuel. The issue is, distance and weather, among other variables, govern the schedule, and when the chain breaks, operations stop.</p>
 
       <div class="thesis-rule" aria-hidden="true">─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</div>
 
-      <p class="thesis-line">There are more than 1,800 offshore oil platforms operating this way today, many running at $500K or more per platform per day. A single supply disruption, whether caused by weather, distance, or logistics failure, halts production and puts crew welfare at risk.</p>
+      <p class="thesis-line">There are more than 1,800 offshore oil platforms operating this way today, many running at $500K or more per platform per day. A single supply disruption halts production and puts crew welfare at risk. On the military side, cheap mass-producible drone platforms have made the resupply convoy a large target, and A2/AD environments have made traditional port-based logistics difficult to sustain at scale. The supply route is the primary point of exposure, and removing it changes the calculus entirely.</p>
 
       <div class="thesis-rule" aria-hidden="true">─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</div>
 
-      <p class="thesis-line">On the military side, cheap mass-producible drone platforms have made the resupply convoy a viable and accessible attack vector for any adversary willing to use them, and A2/AD environments have made traditional port-based logistics genuinely difficult to sustain at scale. Every resupply run creates a pattern, and patterns become liabilities. The supply route is not an incidental concern in a forward deployment but the primary point of exposure, and removing it changes the calculus entirely.</p>
+      <p class="thesis-line">While the operating context changes across all maritime environments are alike, the dependency that is behind it all is identical. Sustained operations run on supply, and supply has always had limits.</p>
 
       <div class="thesis-rule" aria-hidden="true">─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</div>
 
-      <p class="thesis-line">While the operating context changes across military, maritime, remote, and extreme environments alike, the dependency that is behind it all is identical. Sustained operations run on supply, and supply has always had limits.</p>
-
-      <div class="thesis-rule" aria-hidden="true">─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─</div>
-
-      <p class="thesis-line">Some of our team came out of the Artemis III plant science teams, working on how you keep people alive when there is no resupply coming. Others came from defence primes, where they noticed the same fragility in the supply lines that are keeping our forces alive. And so, we came together to create Xyla, to remove sustenance as a variable and do our best to keep people alive and well in maritime operations. Put simply...</p>
+      <p class="thesis-line">Some of our team came out of the Artemis III plant science teams, working on how you keep people alive when there is no resupply coming. Others came from defence primes, where they noticed the same fragility in the supply lines that are keeping our forces alive. And so, we came together to create Xyla, to remove sustenance as a variable in maritime operations.</p>
 
       <p class="thesis-line thesis-end">Xyla ends the convoy.</p>
     </div>
@@ -103,43 +102,37 @@
 <div class="sbreak" data-label="// 02 · SYSTEM"></div>
 
 <section id="system-intro">
-  <div class="wrap">
 
+  <!-- Desktop: header + two-column layout inside wrap -->
+  <div class="sys-desktop-wrap wrap">
     <div class="sg-header reveal">
       <span class="sg-label">[ SYSTEM ]</span>
       <span class="sg-tagline">One standard 20ft ISO container designed to sustain eight people over extended deployments with dramatically reduced external resupply dependency across food, water, energy, and basic first aid.</span>
     </div>
 
     <div class="sys-layout reveal" style="transition-delay:.08s">
-
-      <!-- Left: compact spec table -->
       <div class="sys-spec-col">
-
-        <div class="sys-spec-row">
+        <div class="sys-spec-row spec-animate">
           <span class="ssr-tag">[ FOOD ]</span>
           <span class="ssr-metric">138,293<span class="ssr-unit">kcal/wk</span></span>
           <span class="ssr-ctx">1,820 plants · aeroponic · 30s mist / 8min off cycle<br>7.5 kg/wk protein · Validated to TRL 5 (system prototype tested in a relevant operational environment) in an off-grid bunker in Finland</span>
         </div>
-
-        <div class="sys-spec-row">
+        <div class="sys-spec-row spec-animate">
           <span class="ssr-tag">[ WATER ]</span>
           <span class="ssr-metric">70–73<span class="ssr-unit">L/day</span></span>
           <span class="ssr-ctx">Dual-MOF atmospheric · 65–68% RH · 4 cycles/day<br>RO seawater option · 500 L/day · 95% closed loop</span>
         </div>
-
-        <div class="sys-spec-row">
+        <div class="sys-spec-row spec-animate">
           <span class="ssr-tag">[ ENERGY ]</span>
           <span class="ssr-metric">11.1<span class="ssr-unit">kWh/day</span></span>
           <span class="ssr-ctx">4 × 670W N-type TOPCon · 24.8% efficiency<br>LiFePO₄ storage · zero grid dependency · zero fuel input</span>
         </div>
-
-        <div class="sys-spec-row">
+        <div class="sys-spec-row spec-animate">
           <span class="ssr-tag">[ FIRST AID ]</span>
           <span class="ssr-metric">Zero<span class="ssr-unit">pharma imports</span></span>
           <span class="ssr-ctx">PMPM cabinet · 8 automated presets<br>Tinctures · pellets · wound care · grown on-site</span>
         </div>
-
-        <div class="sys-deploy-strip">
+        <div class="sys-deploy-strip spec-animate">
           <span>30 min deployment</span>
           <span class="sds-sep">·</span>
           <span>arrives pre-commissioned · plants already growing</span>
@@ -148,19 +141,59 @@
           <span class="sds-sep">·</span>
           <span>$550 consumables / yr excl. parts</span>
         </div>
-
       </div>
-
-      <!-- Right: container image -->
       <div class="sys-img-col">
         <div class="sys-img-slot">
           <img src="images/Untitled%20design%20(22).png" alt="Xyla containerized biofactory system" loading="lazy" decoding="async">
         </div>
       </div>
-
     </div>
-
   </div>
+
+  <!-- Mobile: sticky scroll through 4 specs -->
+  <div class="sys-mobile-sticky" id="sysMobileSticky">
+    <div class="sys-mobile-inner">
+      <div class="sys-mobile-img">
+        <img src="images/Untitled%20design%20(22).png" alt="Xyla containerized biofactory system" loading="lazy" decoding="async">
+      </div>
+      <div class="sys-mobile-specs" id="sysMobileSpecs">
+        <div class="sys-mobile-spec active" data-idx="0">
+          <span class="ssr-tag">[ FOOD ]</span>
+          <div class="ssr-metric">138,293<span class="ssr-unit">kcal/wk</span></div>
+          <div class="ssr-ctx">1,820 plants · aeroponic · 30s mist / 8min off cycle<br>7.5 kg/wk protein · Validated to TRL 5 in an off-grid bunker in Finland</div>
+        </div>
+        <div class="sys-mobile-spec" data-idx="1">
+          <span class="ssr-tag">[ WATER ]</span>
+          <div class="ssr-metric">70–73<span class="ssr-unit">L/day</span></div>
+          <div class="ssr-ctx">Dual-MOF atmospheric · 65–68% RH · 4 cycles/day<br>RO seawater option · 500 L/day · 95% closed loop</div>
+        </div>
+        <div class="sys-mobile-spec" data-idx="2">
+          <span class="ssr-tag">[ ENERGY ]</span>
+          <div class="ssr-metric">11.1<span class="ssr-unit">kWh/day</span></div>
+          <div class="ssr-ctx">4 × 670W N-type TOPCon · 24.8% efficiency<br>LiFePO₄ storage · zero grid dependency · zero fuel input</div>
+        </div>
+        <div class="sys-mobile-spec" data-idx="3">
+          <span class="ssr-tag">[ FIRST AID ]</span>
+          <div class="ssr-metric">Zero<span class="ssr-unit">pharma imports</span></div>
+          <div class="ssr-ctx">PMPM cabinet · 8 automated presets<br>Tinctures · pellets · wound care · grown on-site</div>
+        </div>
+      </div>
+      <div class="sys-mobile-dots" id="sysMobileDots">
+        <span class="smd-dot active"></span>
+        <span class="smd-dot"></span>
+        <span class="smd-dot"></span>
+        <span class="smd-dot"></span>
+      </div>
+      <div class="sys-mobile-deploy">
+        <span>30 min deployment</span>
+        <span class="sds-sep">·</span>
+        <span>3+ year operation</span>
+        <span class="sds-sep">·</span>
+        <span>$550 / yr consumables</span>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- ─── USE CASES ─────────────────────────────────────────── -->
@@ -174,7 +207,7 @@
       <div class="hpanel">
         <div class="hpanel-top"><span class="hpanel-idx">// 01</span></div>
         <div class="hpanel-bg-gif hpanel-bg-oilrig" aria-hidden="true">
-          <video src="images/oilrig.mp4" autoplay loop muted playsinline></video>
+          <video src="images/oilrig_c.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="hpanel-bot">
           <h2 class="hpanel-title">→&nbsp;OFFSHORE<br>OIL RIGS.</h2>
@@ -194,7 +227,7 @@
       <div class="hpanel">
         <div class="hpanel-top"><span class="hpanel-idx">// 02</span></div>
         <div class="hpanel-bg-gif hpanel-bg-ships" aria-hidden="true">
-          <video src="images/ships.mp4" autoplay loop muted playsinline></video>
+          <video src="images/ships_c.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="hpanel-bot">
           <h2 class="hpanel-title">→&nbsp;NAVAL<br>VESSELS.</h2>
@@ -214,7 +247,7 @@
       <div class="hpanel">
         <div class="hpanel-top"><span class="hpanel-idx">// 03</span></div>
         <div class="hpanel-bg-gif hpanel-bg-sub" aria-hidden="true">
-          <video src="images/bestfinalsub%20(2).mp4" autoplay loop muted playsinline></video>
+          <video src="images/sub_c.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="hpanel-bot">
           <h2 class="hpanel-title">→&nbsp;SUBMARINES.</h2>
@@ -234,7 +267,7 @@
       <div class="hpanel hpanel-moon">
         <div class="hpanel-top"><span class="hpanel-idx">// 04</span></div>
         <div class="hpanel-bg-gif hpanel-bg-space" aria-hidden="true">
-          <video src="images/spaceascii.mp4" autoplay loop muted playsinline></video>
+          <video src="images/spaceascii_c.mp4" autoplay loop muted playsinline></video>
         </div>
         <div class="hpanel-bot">
           <h2 class="hpanel-title">→&nbsp;SPACE.</h2>
@@ -323,7 +356,6 @@
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
 
-
   /* ── Lenis ───────────────────────────────────────────── */
   var lenis = new Lenis({ lerp: 0.085, smooth: true, smoothTouch: false });
   var lenisScroll = 0;
@@ -337,6 +369,23 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function (el) { revealObs.observe(el); });
+
+  /* ── Spec row scroll-in animation ────────────────────── */
+  var specRows = document.querySelectorAll('.spec-animate');
+  if (specRows.length) {
+    var specObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('spec-visible');
+          specObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    specRows.forEach(function (el, i) {
+      el.style.transitionDelay = (i * 0.07) + 's';
+      specObs.observe(el);
+    });
+  }
 
   /* ── Thesis scroll illumination ──────────────────────── */
   var thesisLines = document.querySelectorAll('.thesis-line');
@@ -357,7 +406,7 @@
 
   /* ── Intro overlay ───────────────────────────────────── */
   var introEl = document.getElementById('intro-overlay');
-  var minDelay = 4800; /* covers the 4.5s spin animation */
+  var minDelay = 4800;
   var startTime = Date.now();
 
   document.body.style.overflow = 'hidden';
@@ -376,8 +425,38 @@
     }, remaining);
   }
 
-  /* mp4s load fast — just dismiss after animation completes */
   dismissIntro();
+
+  function isMobile() { return window.innerWidth <= 768; }
+
+  /* ── Mobile: system sticky scroll ───────────────────── */
+  var SYS_STEPS = 4;
+  var sysSticky  = document.getElementById('sysMobileSticky');
+  var sysSpecs   = document.querySelectorAll('.sys-mobile-spec');
+  var sysDots    = document.querySelectorAll('.smd-dot');
+  var sysSection = document.getElementById('system-intro');
+  var sysCurStep = -1;
+
+  var sysSectionTop = 0, sysScrollable = 0;
+  function cacheSysLayout() {
+    if (!sysSection) return;
+    sysSectionTop = sysSection.getBoundingClientRect().top + window.scrollY;
+    /* extra 280px drives the 4 steps */
+    sysScrollable = 280;
+  }
+  window.addEventListener('load', cacheSysLayout);
+  window.addEventListener('resize', cacheSysLayout, { passive: true });
+
+  function updateSysStep(step) {
+    if (step === sysCurStep) return;
+    sysCurStep = step;
+    sysSpecs.forEach(function (el, i) {
+      el.classList.toggle('active', i === step);
+    });
+    sysDots.forEach(function (el, i) {
+      el.classList.toggle('active', i === step);
+    });
+  }
 
   /* ── Horizontal scroll use cases ─────────────────────── */
   var ucSection = document.getElementById('usecases');
@@ -388,9 +467,7 @@
   var curX = 0, tgtX = 0;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
-  function isMobile() { return window.innerWidth <= 768; }
 
-  /* Cache expensive layout reads — never call getBoundingClientRect in rAF */
   var ucSectionTop = 0, ucScrollable = 0, ucPanelSpan = 0;
   function cacheUCLayout() {
     if (!ucSection) return;
@@ -398,11 +475,11 @@
     ucScrollable  = ucSection.offsetHeight - window.innerHeight;
     ucPanelSpan   = window.innerWidth * (PANELS - 1);
   }
-  window.addEventListener('load', cacheUCLayout);
-  window.addEventListener('resize', cacheUCLayout, { passive: true });
+  window.addEventListener('load', function () { cacheUCLayout(); cacheSysLayout(); });
+  window.addEventListener('resize', function () { cacheUCLayout(); cacheSysLayout(); }, { passive: true });
 
   function calcUCTarget() {
-    if (!ucSection || isMobile() || ucScrollable <= 0) { tgtX = 0; return; }
+    if (!ucSection || ucScrollable <= 0) { tgtX = 0; return; }
     tgtX = Math.max(0, Math.min(1, (lenisScroll - ucSectionTop) / ucScrollable)) * ucPanelSpan;
   }
 
@@ -412,22 +489,51 @@
     ucLabel.textContent = String(idx + 1).padStart(2, '0') + ' / 0' + PANELS + ' · ' + NAMES[idx];
   }
 
+  /* ── Snap to nearest panel when scroll stops inside UC section ── */
+  var snapTimer = null;
+  var isSnapping = false;
+
+  function snapToNearestPanel() {
+    if (!ucSection || ucScrollable <= 0) return;
+    /* only snap if we're inside the UC section */
+    var progress = (lenisScroll - ucSectionTop) / ucScrollable;
+    if (progress < 0 || progress > 1) return;
+
+    var panelIdx = Math.round(progress * (PANELS - 1));
+    panelIdx = Math.max(0, Math.min(PANELS - 1, panelIdx));
+    var targetScroll = ucSectionTop + (panelIdx / (PANELS - 1)) * ucScrollable;
+
+    if (Math.abs(targetScroll - lenisScroll) > 5) {
+      isSnapping = true;
+      lenis.scrollTo(targetScroll, { duration: 0.6, easing: function(t) { return 1 - Math.pow(1 - t, 3); }, onComplete: function() { isSnapping = false; } });
+    }
+  }
+
+  lenis.on('scroll', function() {
+    if (isSnapping) return;
+    clearTimeout(snapTimer);
+    snapTimer = setTimeout(snapToNearestPanel, 80);
+  });
+
   /* ── Single merged rAF loop ──────────────────────────── */
   (function raf(t) {
     lenis.raf(t);
 
+    /* System sticky — only drive steps on mobile */
+    if (sysSection && isMobile() && sysScrollable > 0) {
+      var progress = (lenisScroll - sysSectionTop) / sysScrollable;
+      var step = Math.min(SYS_STEPS - 1, Math.max(0, Math.floor(progress * SYS_STEPS)));
+      updateSysStep(step);
+    }
+
+    /* Horizontal use-cases — works on both desktop and mobile now */
     if (ucTrack) {
       calcUCTarget();
       var nextX = lerp(curX, tgtX, 0.1);
-      if (!isMobile()) {
-        if (Math.abs(nextX - curX) > 0.1) {
-          curX = nextX;
-          ucTrack.style.transform = 'translateX(-' + curX + 'px)';
-          updateUCLabel();
-        }
-      } else if (ucTrack.style.transform !== '') {
-        curX = 0;
-        ucTrack.style.transform = '';
+      if (Math.abs(nextX - curX) > 0.1) {
+        curX = nextX;
+        ucTrack.style.transform = 'translateX(-' + curX + 'px)';
+        updateUCLabel();
       }
     }
 
