@@ -293,6 +293,7 @@ nav a:hover { color: var(--ink); }
 .hero-mobile-heading { display: none; }
 
 @media (max-width: 768px) {
+  /* Hero: heading top, gif fills middle, para+buttons pinned to bottom */
   #hero {
     height: 100svh;
     justify-content: flex-start;
@@ -301,41 +302,47 @@ nav a:hover { color: var(--ink); }
   .hero-mobile-heading {
     display: block;
     flex-shrink: 0;
-    padding: calc(var(--nav-h) + 2vh) var(--gutter) 1vh;
+    padding: calc(var(--nav-h) + 16px) var(--gutter) 0;
   }
-  .hero-mobile-heading .hero-tagline { font-size: clamp(13px, 3.8vw, 17px); }
+  .hero-mobile-heading .hero-tagline { font-size: clamp(13px, 3.8vw, 16px); }
   .hero-mobile-heading .hero-tagsub  { font-size: clamp(10px, 3vw, 13px); margin-top: 3px; }
 
+  /* Gif: grows to fill available middle space, shrinks on short phones */
   .hero-main {
-    flex: 0 0 auto;
-    padding-top: 7vh;
-    padding-bottom: 0;
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 12px 0;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
+    display: flex;
   }
 
-  /* Mobile gif pre-cropped to 1024×682 */
+  /* Gif container: fills middle height, respects aspect ratio */
   .hero-gif {
-    width: 96vw;
-    height: auto;
+    width: auto;
+    height: 100%;
+    max-width: 96vw;
     aspect-ratio: 1024 / 682;
     overflow: hidden;
     position: relative;
   }
-  .hero-gif picture { display: block; width: 100%; }
+  .hero-gif picture { display: block; width: 100%; height: 100%; }
   .hero-gif img {
     position: static;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
     display: block;
   }
 
+  /* Bottom block: always pinned, never pushed off screen */
   .hero-bottom {
     flex-shrink: 0;
-    margin-top: auto;
+    margin-top: 0;
     grid-template-columns: 1fr;
     gap: 0;
-    padding: 0 var(--gutter) 14vh;
+    padding: 8px var(--gutter) 32px;
     align-items: end;
   }
   .hero-right { display: none; }
@@ -499,10 +506,10 @@ nav a:hover { color: var(--ink); }
   .sys-desktop-wrap { display: none; }
   .sys-mobile-sticky { display: block; }
 
-  /* sticky viewport + minimal extra to drive 4 steps */
+  /* match use case scroll speed: 3×100vh total */
   #system-intro {
     padding: 0;
-    height: calc(100vh + 280px);
+    height: calc(3 * 100vh);
     position: relative;
   }
 
