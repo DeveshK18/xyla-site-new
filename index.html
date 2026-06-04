@@ -421,6 +421,8 @@
         introEl.remove();
         document.body.style.overflow = '';
         lenis.start();
+        cacheSysLayout();
+        cacheUCLayout();
       }, { once: true });
     }, remaining);
   }
@@ -441,11 +443,13 @@
   function cacheSysLayout() {
     if (!sysSection) return;
     sysSectionTop = sysSection.getBoundingClientRect().top + window.scrollY;
-    /* section is 3*vh, sticky is 1*vh, scrollable range = 2*vh */
     sysScrollable = 2 * window.innerHeight;
   }
-  window.addEventListener('load', cacheSysLayout);
   window.addEventListener('resize', cacheSysLayout, { passive: true });
+  /* recache after intro gone and fonts/images settled */
+  window.addEventListener('load', function() {
+    setTimeout(cacheSysLayout, 100);
+  });
 
   function updateSysStep(step) {
     if (step === sysCurStep) return;
