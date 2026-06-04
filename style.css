@@ -41,7 +41,7 @@ html { scroll-behavior: auto; -webkit-font-smoothing: antialiased; -moz-osx-font
   display: block;
   transform-origin: center center;
   opacity: 0;
-  animation: intro-spin 4.5s ease-out forwards;
+  animation: intro-spin 1.8s ease-out forwards;
 }
 
 @keyframes intro-spin {
@@ -50,21 +50,13 @@ html { scroll-behavior: auto; -webkit-font-smoothing: antialiased; -moz-osx-font
     transform: rotate(0deg) scale(0.88);
     animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1);
   }
-  6%  { opacity: 1; }
-  32% {
+  8%  { opacity: 1; }
+  70% {
     transform: rotate(360deg) scale(1.02);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 0.4);
-  }
-  52% {
-    transform: rotate(385deg) scale(1);
-    animation-timing-function: cubic-bezier(0, 0.5, 0.2, 1);
-  }
-  80% {
-    transform: rotate(720deg) scale(1.01);
-    animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.3, 1);
   }
   100% {
-    transform: rotate(720deg) scale(1);
+    transform: rotate(375deg) scale(1);
     opacity: 1;
   }
 }
@@ -832,6 +824,8 @@ nav a:hover { color: var(--ink); }
 
   .hpanel-specs li { font-size: 11px; line-height: 1.4; }
   .hpanel-para { font-size: 11px; max-width: none; line-height: 1.55; margin-top: 8px; }
+  .hpanel-price { font-size: 12px; margin-top: 12px; padding-top: 10px; }
+  .hpanel-contact { font-size: 9px; margin-top: 10px; padding-top: 8px; }
 
   /* Videos: start at 50% down */
   .hpanel-bg-gif {
