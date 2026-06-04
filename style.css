@@ -416,7 +416,7 @@ nav a:hover { color: var(--ink); }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: start;
+  align-items: center;
   margin-top: 24px;
 }
 
@@ -525,7 +525,7 @@ nav a:hover { color: var(--ink); }
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: calc(var(--nav-h) + 6px) var(--gutter) 12px;
+    padding: calc(var(--nav-h) + 6px) var(--gutter) 28px;
     gap: 0;
   }
 
@@ -600,13 +600,14 @@ nav a:hover { color: var(--ink); }
     line-height: 1.75;
   }
 
-  /* Step dots */
+  /* Step dots — pushed to bottom */
   .sys-mobile-dots {
     display: flex;
     gap: 8px;
     align-items: center;
     padding: 8px 0 6px;
     flex-shrink: 0;
+    margin-top: auto;
   }
 
   .smd-dot {
@@ -784,9 +785,20 @@ nav a:hover { color: var(--ink); }
   display: block;
 }
 
-/* Desktop: hide videos on mobile — they show differently */
 @media (min-width: 769px) {
-  /* nothing to override — videos show normally */
+  .hpanel-bg-gif {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    width: 58%;
+    height: 100%;
+    opacity: 0.85;
+  }
+  .hpanel::before {
+    background: linear-gradient(to right, #ffffff 44%, rgba(255,255,255,0.95) 52%, rgba(255,255,255,0) 65%);
+  }
 }
 
 /* ── Mobile use-cases: horizontal scroll same as desktop ── */
